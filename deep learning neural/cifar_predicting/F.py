@@ -1,0 +1,157 @@
+import numpy as np
+import tensorflow as tf
+import matplotlib.pyplot as plt
+from tensorflow.keras.datasets import cifar10
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+
+
+(x_train, y_train), (x_test, y_test) = cifar10.load_data()
+x_train, x_test = x_train/255, x_test/255
+numbers_of_each_label = np.zeros(10)
+x_train2, y_train2 = x_train, y_train
+select_arr = (6000, 32, 32, 3)
+select_target = (6000, 1)
+y_train_selected = np.zeros(select_target)
+x_train_selected = np.zeros(select_arr)
+array_select_counter = 0
+for i in range(9):
+  array_counter = 0
+  while True:
+    if i == y_train2[array_counter]:
+      y_train_selected[array_select_counter] = y_train2[array_counter]
+      x_train_selected[array_select_counter, :, :, :] = x_train2[array_counter, :, :, :]
+      numbers_of_each_label[i] = numbers_of_each_label[i]+1
+      array_select_counter = array_select_counter + 1
+    if numbers_of_each_label[i] > 600:
+      break
+    array_counter = array_counter+1
+shuffling = np.arange(6000)
+np.random.shuffle(shuffling)
+for i in range (5999):
+  y_train_selected[i] = y_train_selected[shuffling[i]]
+  x_train_selected[i, :, :, :] = x_train_selected[shuffling[i], :, :, :]
+
+
+
+
+x_train_selected_auged = np.zeros((60000, 32, 32, 3))
+y_train_selected_auged = np.zeros((60000, 1))
+
+
+
+datagen = ImageDataGenerator(
+    featurewise_center=True,
+    featurewise_std_normalization=True,
+    rotation_range=20,
+    width_shift_range=0.2,
+    height_shift_range=0.2,
+    horizontal_flip=True)
+
+#(x_train, y_train), (x_test, y_test) = cifar10.load_data()
+for j in range(6000):
+    helping_index = np.reshape(x_train_selected[j],(1,32,32,3))
+    aug_iter = datagen.flow(helping_index)
+    #print(type(x_train))
+    #print(type(aug_iter))
+    aug_image = [next(aug_iter)[0].astype(np.float)  for i in range(10)]
+    aug_image = np.asarray(aug_image)
+    #x_train_selected_auged = np.append(x_train_selected_auged, aug_image)
+
+    for k in range(10):
+        x_train_selected_auged[j+k] = aug_image[k]
+        y_train_selected_auged[j+k] = y_train_selected[j]
+
+
+
+
+
+
+
+#array_counter = 0
+#for i in range(50000):
+#    random_var = np.random.random_integers(50000-i)
+#    target_label = y_train2[random_var]
+#    if numbers_of_each_label[target_label] < 101:
+#        numbers_of_each_label[target_label] = numbers_of_each_label[target_label]+1
+#        x_train_selected[array_counter, :, :, :] = x_train2[random_var, :, :, :]
+#        y_train_selected[array_counter] = y_train2[random_var]
+#        x_train2 = np.delete(x_train2, slice(random_var, random_var+1), 0)
+#        y_train2 = np.delete(y_train2, slice(random_var, random_var+1), 0)
+#        array_counter = array_counter+1
+#    if numbers_of_each_label[target_label] > 100:
+#        x_train2 = np.delete(x_train2, slice(random_var, random_var + 1), 0)
+#        y_train2 = np.delete(y_train2, slice(random_var, random_var + 1), 0)
+#    if (numbers_of_each_label[0]>100)&(numbers_of_each_label[1]>100)&(numbers_of_each_label[2]>100)&(numbers_of_each_label[3]>100)&(numbers_of_each_label[4]>100)&(numbers_of_each_label[5]>100)&(numbers_of_each_label[6]>100)&(numbers_of_each_label[7]>100)&(numbers_of_each_label[8]>100)&(numbers_of_each_label[9]>100):
+#      break
+#f=open("data_batch_1","r")
+#print(f.read())
+model_dropout = tf.keras.models.Sequential([
+  #tf.keras.layers.Flatten(),
+  tf.keras.layers.Conv2D(filters=40, kernel_size=6, strides=1, padding='same', activation='relu', input_shape=(32, 32, 3)),
+  tf.keras.layers.MaxPooling2D(pool_size=2),
+  tf.keras.layers.Conv2D(filters=20, kernel_size=4, strides=1, padding='same', activation='relu'),
+  tf.keras.layers.MaxPooling2D(pool_size=2),
+  tf.keras.layers.Flatten(),
+  tf.keras.layers.Dropout(0.2),
+  tf.keras.layers.Dense(210, activation=tf.nn.relu),
+  tf.keras.layers.Dropout(0.2),
+  tf.keras.layers.Dense(90, activation=tf.nn.relu),
+  tf.keras.layers.Dropout(0.2),
+  tf.keras.layers.Dense(10, activation=tf.nn.softmax)
+])
+model_dropout.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+
+
+model_augment = tf.keras.models.Sequential([
+  #tf.keras.layers.Flatten(),
+  tf.keras.layers.Conv2D(filters=40, kernel_size=6, strides=1, padding='same', activation='relu', input_shape=(32, 32, 3)),
+  tf.keras.layers.MaxPooling2D(pool_size=2),
+  tf.keras.layers.Conv2D(filters=20, kernel_size=4, strides=1, padding='same', activation='relu'),
+  tf.keras.layers.MaxPooling2D(pool_size=2),
+  tf.keras.layers.Flatten(),
+  tf.keras.layers.Dense(210, activation=tf.nn.relu),
+  tf.keras.layers.Dense(90, activation=tf.nn.relu),
+  tf.keras.layers.Dense(10, activation=tf.nn.softmax)
+])
+model_augment.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+
+
+epok = 10
+train_acc = []
+test_acc = []
+train_loss = []
+test_loss = []
+train_acc = np.asarray(train_acc)
+test_acc = np.asarray(test_acc)
+train_loss = np.asarray(train_loss)
+test_loss = np.asarray(test_loss)
+
+test_acc_dropout = []
+test_acc_dropout = np.asarray(test_acc_dropout)
+test_acc_augment = []
+test_acc_augment = np.asarray(test_acc_augment)
+
+#print(train_acc.shape)
+#print(type(train_acc))
+#train_acc = tuple(train_acc)
+#test_acc = tuple(test_acc)
+#train_loss = tuple(train_loss)
+#test_loss = tuple(test_loss)
+
+for i in range(epok):
+  history = model_dropout.fit(x_train_selected, y_train_selected, batch_size=200, epochs=1)
+  score = model_dropout.evaluate(x_test, y_test)
+  test_acc_dropout = np.append(test_acc_dropout, [score[1]])
+
+for i in range(epok):
+  history = model_augment.fit(x_train_selected_auged, y_train_selected_auged, batch_size=200, epochs=1)
+  score = model_augment.evaluate(x_test, y_test)
+  test_acc_augment = np.append(test_acc_augment, [score[1]])
+
+plt.plot(test_acc_dropout[0:epok])
+plt.plot(test_acc_augment[0:epok])
+plt.title('model accuracy')
+plt.ylabel('accuracy')
+plt.xlabel('epoch')
+plt.legend(['test_acc_dropout', 'test_acc_augment'], loc='upper left')
+plt.show()
