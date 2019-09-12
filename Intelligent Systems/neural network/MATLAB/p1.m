@@ -1,0 +1,9 @@
+  hidden_layer_neuron_count = 64;
+%  hidden_layer_neuron_count = 4;
+% hidden_layer_neuron_count = 400;
+feature_count = 784;
+final_classes_count = 10;
+v = normrnd(0,0.1,hidden_layer_neuron_count, feature_count);
+w = normrnd(0,0.1,final_classes_count, hidden_layer_neuron_count);
+[v,w] = neural_network_train(v,w);
+accuracy = neural_network_test(v,w);
