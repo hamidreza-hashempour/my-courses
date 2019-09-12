@@ -1,0 +1,117 @@
+           (0, 0, 0)  (0, 0, 1)  (0, 0, 2)  (0, 1, 0)  (0, 1, 1)  (0, 1, 2)  \
+(0, 0, 0)       -inf       -inf       -inf       -inf       -inf       -inf   
+(0, 0, 1)       -inf       -inf  -0.010000       -inf       -inf       -inf   
+(0, 0, 2)       -inf  -0.010000       -inf       -inf       -inf       -inf   
+(0, 1, 0)       -inf       -inf       -inf       -inf       -inf       -inf   
+(0, 1, 1)       -inf       -inf       -inf       -inf       -inf       -inf   
+(0, 1, 2)       -inf       -inf       -inf       -inf       -inf       -inf   
+(0, 2, 0)       -inf       -inf       -inf  -0.010000       -inf       -inf   
+(0, 2, 1)       -inf       -inf       -inf       -inf  -0.010000       -inf   
+(0, 2, 2)       -inf       -inf       -inf       -inf       -inf  -0.010000   
+(1, 0, 0)  -0.010000       -inf       -inf       -inf       -inf       -inf   
+(1, 0, 1)       -inf  -0.010000       -inf       -inf       -inf       -inf   
+(1, 0, 2)       -inf       -inf  -0.010000       -inf       -inf       -inf   
+(1, 1, 0)       -inf       -inf       -inf  -0.010000       -inf       -inf   
+(1, 1, 1)       -inf       -inf       -inf       -inf  -0.010000       -inf   
+(1, 1, 2)       -inf       -inf       -inf       -inf       -inf  -0.010000   
+(1, 2, 0)       -inf       -inf       -inf       -inf       -inf       -inf   
+(1, 2, 1)       -inf       -inf       -inf       -inf       -inf       -inf   
+(1, 2, 2)       -inf       -inf       -inf       -inf       -inf       -inf   
+(2, 0, 0)  -0.010000       -inf       -inf       -inf       -inf       -inf   
+(2, 0, 1)       -inf  -0.010000       -inf       -inf       -inf       -inf   
+(2, 0, 2)       -inf       -inf  -0.010000       -inf       -inf       -inf   
+(2, 1, 0)       -inf       -inf       -inf  -0.010000       -inf       -inf   
+(2, 1, 1)       -inf       -inf       -inf       -inf  -0.010000       -inf   
+(2, 1, 2)       -inf       -inf       -inf       -inf       -inf  -0.010000   
+(2, 2, 0)       -inf       -inf       -inf       -inf       -inf       -inf   
+(2, 2, 1)       -inf       -inf       -inf       -inf       -inf       -inf   
+(2, 2, 2)       -inf       -inf       -inf       -inf       -inf       -inf   
+
+           (0, 2, 0)  (0, 2, 1)  (0, 2, 2)  (1, 0, 0)     ...      (1, 2, 2)  \
+(0, 0, 0)       -inf       -inf       -inf  -0.010000     ...           -inf   
+(0, 0, 1)       -inf       -inf       -inf       -inf     ...           -inf   
+(0, 0, 2)       -inf       -inf       -inf       -inf     ...           -inf   
+(0, 1, 0)  -0.010000       -inf       -inf       -inf     ...           -inf   
+(0, 1, 1)       -inf  -0.010000       -inf       -inf     ...           -inf   
+(0, 1, 2)       -inf       -inf  -0.010000       -inf     ...           -inf   
+(0, 2, 0)       -inf       -inf       -inf       -inf     ...           -inf   
+(0, 2, 1)       -inf       -inf       -inf       -inf     ...           -inf   
+(0, 2, 2)       -inf       -inf       -inf       -inf     ...      -0.010000   
+(1, 0, 0)       -inf       -inf       -inf       -inf     ...           -inf   
+(1, 0, 1)       -inf       -inf       -inf       -inf     ...           -inf   
+(1, 0, 2)       -inf       -inf       -inf       -inf     ...      -0.010000   
+(1, 1, 0)       -inf       -inf       -inf       -inf     ...           -inf   
+(1, 1, 1)       -inf       -inf       -inf       -inf     ...           -inf   
+(1, 1, 2)       -inf       -inf       -inf       -inf     ...           -inf   
+(1, 2, 0)  -0.010000       -inf       -inf  -0.010000     ...           -inf   
+(1, 2, 1)       -inf  -0.010000       -inf       -inf     ...           -inf   
+(1, 2, 2)       -inf       -inf  -0.010000       -inf     ...           -inf   
+(2, 0, 0)       -inf       -inf       -inf  -0.010000     ...           -inf   
+(2, 0, 1)       -inf       -inf       -inf       -inf     ...           -inf   
+(2, 0, 2)       -inf       -inf       -inf       -inf     ...           -inf   
+(2, 1, 0)       -inf       -inf       -inf       -inf     ...           -inf   
+(2, 1, 1)       -inf       -inf       -inf       -inf     ...           -inf   
+(2, 1, 2)       -inf       -inf       -inf       -inf     ...           -inf   
+(2, 2, 0)  -0.010000       -inf       -inf       -inf     ...           -inf   
+(2, 2, 1)       -inf  -0.010000       -inf       -inf     ...           -inf   
+(2, 2, 2)       -inf       -inf  -0.010000       -inf     ...      -0.010000   
+
+           (2, 0, 0)  (2, 0, 1)  (2, 0, 2)  (2, 1, 0)  (2, 1, 1)  (2, 1, 2)  \
+(0, 0, 0)  -0.010000       -inf       -inf       -inf       -inf       -inf   
+(0, 0, 1)       -inf  -0.010000       -inf       -inf       -inf       -inf   
+(0, 0, 2)       -inf       -inf  -0.010000       -inf       -inf       -inf   
+(0, 1, 0)       -inf       -inf       -inf  -0.010000       -inf       -inf   
+(0, 1, 1)       -inf       -inf       -inf       -inf  -0.010000       -inf   
+(0, 1, 2)       -inf       -inf       -inf       -inf       -inf  -0.010000   
+(0, 2, 0)       -inf       -inf       -inf       -inf       -inf       -inf   
+(0, 2, 1)       -inf       -inf       -inf       -inf       -inf       -inf   
+(0, 2, 2)       -inf       -inf       -inf       -inf       -inf       -inf   
+(1, 0, 0)  -0.010000       -inf       -inf       -inf       -inf       -inf   
+(1, 0, 1)       -inf  -0.010000       -inf       -inf       -inf       -inf   
+(1, 0, 2)       -inf       -inf  -0.010000       -inf       -inf       -inf   
+(1, 1, 0)       -inf       -inf       -inf  -0.010000       -inf       -inf   
+(1, 1, 1)       -inf       -inf       -inf       -inf  -0.010000       -inf   
+(1, 1, 2)       -inf       -inf       -inf       -inf       -inf  -0.010000   
+(1, 2, 0)       -inf       -inf       -inf       -inf       -inf       -inf   
+(1, 2, 1)       -inf       -inf       -inf       -inf       -inf       -inf   
+(1, 2, 2)       -inf       -inf       -inf       -inf       -inf       -inf   
+(2, 0, 0)       -inf       -inf       -inf  -0.010000       -inf       -inf   
+(2, 0, 1)       -inf       -inf       -inf       -inf  -0.010000       -inf   
+(2, 0, 2)       -inf       -inf       -inf       -inf       -inf  -0.010000   
+(2, 1, 0)  -0.010000       -inf       -inf       -inf       -inf       -inf   
+(2, 1, 1)       -inf  -0.010000       -inf       -inf       -inf       -inf   
+(2, 1, 2)       -inf       -inf  -0.010000       -inf       -inf       -inf   
+(2, 2, 0)       -inf       -inf       -inf       -inf       -inf       -inf   
+(2, 2, 1)       -inf       -inf       -inf       -inf       -inf       -inf   
+(2, 2, 2)       -inf       -inf       -inf       -inf       -inf       -inf   
+
+           (2, 2, 0)  (2, 2, 1)   (2, 2, 2)  
+(0, 0, 0)       -inf       -inf        -inf  
+(0, 0, 1)       -inf       -inf        -inf  
+(0, 0, 2)       -inf       -inf        -inf  
+(0, 1, 0)       -inf       -inf        -inf  
+(0, 1, 1)       -inf       -inf        -inf  
+(0, 1, 2)       -inf       -inf        -inf  
+(0, 2, 0)  -0.010000       -inf        -inf  
+(0, 2, 1)       -inf  -0.010000        -inf  
+(0, 2, 2)       -inf       -inf  100.000000  
+(1, 0, 0)       -inf       -inf        -inf  
+(1, 0, 1)       -inf       -inf        -inf  
+(1, 0, 2)       -inf       -inf        -inf  
+(1, 1, 0)       -inf       -inf        -inf  
+(1, 1, 1)       -inf       -inf        -inf  
+(1, 1, 2)       -inf       -inf        -inf  
+(1, 2, 0)  -0.010000       -inf        -inf  
+(1, 2, 1)       -inf  -0.010000        -inf  
+(1, 2, 2)       -inf       -inf  100.000000  
+(2, 0, 0)       -inf       -inf        -inf  
+(2, 0, 1)       -inf       -inf        -inf  
+(2, 0, 2)       -inf       -inf        -inf  
+(2, 1, 0)       -inf       -inf        -inf  
+(2, 1, 1)       -inf       -inf        -inf  
+(2, 1, 2)       -inf       -inf        -inf  
+(2, 2, 0)       -inf  -0.010000        -inf  
+(2, 2, 1)  -0.010000       -inf        -inf  
+(2, 2, 2)       -inf       -inf        -inf  
+
+[27 rows x 27 columns]
